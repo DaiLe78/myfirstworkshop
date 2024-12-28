@@ -1,10 +1,10 @@
 ---
-title : "Session Management"
+title : "Building Serverless Chatbot On AWS"
 date :  "`r Sys.Date()`" 
 weight : 1 
 chapter : false
 ---
-# Work with Amazon System Manager - Session Manager
+# Building Serverless Chatbot On AWS Using AWS Lambda, Lex And DynamoDB
 
 ### Overall
  In this lab, you'll learn the basics and practice of Amazon  System Manager - Session Manager
