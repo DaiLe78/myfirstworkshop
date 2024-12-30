@@ -5,7 +5,6 @@ weight : 1
 chapter : false
 pre : " <b> 1. </b> "
 ---
-In today’s fast-paced digital environment, chatbots have become essential tools for businesses to automate customer interactions, streamline processes, and provide 24/7 support. By leveraging serverless technologies, organizations can build scalable and cost-efficient chatbot solutions without managing underlying infrastructure.
 
 Amazon Web Services (AWS) offers a comprehensive suite of tools to create intelligent, serverless chatbots. This project focuses on utilizing **Amazon Lex**, **AWS Lambda**, and **Amazon DynamoDB** to develop a chatbot that can handle user queries, process data, and provide dynamic responses in real-time.
 
