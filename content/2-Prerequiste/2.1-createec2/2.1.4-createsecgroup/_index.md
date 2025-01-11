@@ -1,16 +1,16 @@
 ---
 title : "Create security groups"
 date : "`r Sys.Date()`"
-weight : 4
+weight : 3
 chapter : false
-pre : " <b> 2.1.4 </b> "
+pre : " <b> 2.1.3 </b> "
 ---
 
 #### Create security groups
 
-In this step, we will proceed to create the security groups used for our instances. As you can see, these security groups will not need to open traditional ports to **ssh** like port **22** or **remote desktop** through port **3389**.
+In this step, we will proceed to create the security groups used for our Lambda functions, DAX, OpenSearch and VPC Endpoints.
 
-#### Create security group for Linux instance located in public subnet
+#### Create security group for 2 Lambda functions located in private subnet
 
 1. Go to [VPC service management console](https://console.aws.amazon.com/vpc)
   + Click **Security Group**.
@@ -18,8 +18,8 @@ In this step, we will proceed to create the security groups used for our instanc
 
 ![SG](/images/2.prerequisite/019-createsg.png)
 
-3. In the **Security group name** field, enter **SG Public Linux Instance**.
-  + In the **Description** section, enter **SG Public Linux Instance**.
+3. In the **Security group name** field, enter **SG Lambda**.
+  + In the **Description** section, enter **SG Lambda**.
   + In the **VPC** section, click the **X** to reselect the **Lab VPC** you created for this lab.
 
 ![SG](/images/2.prerequisite/020-createsg.png)
@@ -28,39 +28,64 @@ In this step, we will proceed to create the security groups used for our instanc
   + Click **Create security group**.
 
 {{%notice tip%}}
-As you can see, the security group we created to use for Linux public instances will not need to open traditional ports to **ssh** like port **22**.
+As you can see, the security group we created to use for Lambda functions will not need to open traditional ports like port **22**.
 {{%/notice%}}
 
 
-#### Create a security group for a Windows instance located in a private subnet
+#### Create a security group for Amazon DAX located in a private subnet
 
-1. After successfully creating a security group for the Linux instance located in the public subnet, click the Security Groups link to return to the Security groups list.
+1. After successfully creating a security group for Lambda functions, click the Security Groups link to return to the Security groups list.
 
 ![SG](/images/2.prerequisite/021-createsg.png)
 
 2. Click **Create security group**.
 
-3. In the **Security group name** field, enter **SG Private Windows Instance**.
-  + In the **Description** section, enter **SG Private Windows Instance**.
+3. In the **Security group name** field, enter **SG DAX**.
+  + In the **Description** section, enter **SG DAX**.
   + In the **VPC** section, click the **X** to reselect the **Lab VPC** you created for this lab.
 
 ![SG](/images/2.prerequisite/022-createsg.png)
 
 4. Scroll down.
-  + Add **Outbound rule** to allow TCP 443 connection to 10.10.0.0/16 ( CIDR of **Lab VPC** we created)
+  + Add **Inbound rule** for **Type**: Custom TCP Rule, **Protocol**: TCP, **Port range**: 8111 (DAX default port), **Source**: SG Lambda 
+  + Add **Outbound rule** and keep as default.
   + Click **Create security group**.
 
 ![SG](/images/2.prerequisite/023-createsg.png)
 
 {{%notice tip%}}
-For the Instance in the private subnet, we will connect to the **Session Manager** endpoint over a TLS encrypted connection, so we need to allow outbound connection from our instance to VPC CIDR through port 443.
+For Amazon DAX in the private subnet, Lambda functions will connect to DAX to cache before sending to DynamoDB, so we need to allow inbound connection from our Lambda functions to DAX through port 8111.
 {{%/notice%}}
 
+#### Create a security group for Amazon OpenSearch located in a private subnet
+
+1. After successfully creating a security group for DAX, click the Security Groups link to return to the Security groups list.
+
+![SG](/images/2.prerequisite/021-createsg.png)
+
+2. Click **Create security group**.
+
+3. In the **Security group name** field, enter **SG OpenSearch**.
+  + In the **Description** section, enter **SG OpenSearch**.
+  + In the **VPC** section, click the **X** to reselect the **Lab VPC** you created for this lab.
+
+![SG](/images/2.prerequisite/022-createsg.png)
+
+4. Scroll down.
+  + Add **Inbound rule** for **Type**: HTTP, **Protocol**: TCP, **Port range**: 80, **Source**: SG Lambda 
+  + Add **Outbound rule** and keep as default.
+  + Click **Create security group**.
+
+![SG](/images/2.prerequisite/023-createsg.png)
+
+{{%notice tip%}}
+For OpenSearch in the private subnet we need to allow inbound connection from our Lambda functions to OpenSearch through port 80.
+{{%/notice%}}
 
 #### Create security group for VPC Endpoint
 
-1. In this step, we will create security group for VPC Endpoint of **Session Manager**.
-2. After successfully creating the security group for the Windows instance in the private subnet, click the Security Groups link to return to the Security groups list.
+1. In this step, we will create security group for VPC Endpoint.
+2. After successfully creating the security group for OpenSearch in the private subnet, click the Security Groups link to return to the Security groups list.
 3. Click **Create security group**.
 4. In the **Security group name** field, enter **SG VPC Endpoint**.
   + In the **Description** section, enter **SG VPC Endpoint**.
@@ -69,7 +94,7 @@ For the Instance in the private subnet, we will connect to the **Session Manager
 ![SG](/images/2.prerequisite/024-createsg.png)
 
 5. Scroll down.
-  + Delete **Outbound rule**.
+  + Add **Outbound rule** as default.
   
 ![SG](/images/2.prerequisite/025-createsg.png)
 
@@ -78,4 +103,4 @@ For the Instance in the private subnet, we will connect to the **Session Manager
 
 ![SG](/images/2.prerequisite/026-createsg.png)
 
-So we are done creating the necessary security groups for EC2 instances and VPC Endpoints.
+So we are done creating the necessary security groups for Lambda functions, DAX, OpenSearch and VPC Endpoints.
