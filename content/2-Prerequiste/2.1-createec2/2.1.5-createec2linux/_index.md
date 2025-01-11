@@ -1,33 +1,35 @@
 ---
-title : "Create Public instance"
+title : "Create Lambda Functions"
 date : "`r Sys.Date()`"
-weight : 5
+weight : 4
 chapter : false
-pre : " <b> 2.1.5 </b> "
+pre : " <b> 2.1.4 </b> "
 ---
 
-1. Go to [EC2 service management console](https://console.aws.amazon.com/ec2/v2/home)
-  + Click **Instances**.
-  + Click **Launch instances**.
-  
+1. Go to [AWS Lambda Function console](https://ap-southeast-2.console.aws.amazon.com/lambda)
+  + Click **Create a function**.
+ 
 ![EC2](/images/2.prerequisite/027-createec2.png)
 
-2. On the **Step 1: Choose an Amazon Machine Image (AMI)** page.
-  + Click **Select** to select AMI **Amazon Linux 2 AMI**.
+2. Choose **Use a blueprint**.
   
 ![EC2](/images/2.prerequisite/028-createec2.png)
 
-3. On the **Step 2: Choose an Instance Type** page.
- + Click on Instance type **t2.micro**.
- + Click **Next: Configure Instance Details**.
- 
+3. In the **Basic information** step.
+ + In the **Blueprint name** section, choose **Manage orders with LEX** python 3.10 version.
+ + In the **Function name** section, enter **Lambda1**.
+ + In the **Execution role** section, creat a new role with **AWSLambdaBasicExecutionRole** and **AWSLambdaVPCAccessExecutionRole**.
+ + Then click on **Creat function**
 ![EC2](/images/2.prerequisite/029-createec2.png)
 
-4. At **Step 3: Configure Instance Details** page
-  + In the **Network** section, select **Lab VPC**.
-  + In the **Subnet** section, select **Lab Public Subnet**.
-  + In the **Auto-assign Public IP** section, select **Use subnet setting (Enable)**
-  + Click **Next: Add Storage**.
+4. In this step we will attach **VPC** and **Security Group** for **Lambda function 1**.
+  + In the **Lambda1** we have just created, click on **Configuration**.
+  + Then click on **VPC** in the left menu.
+  ![EC2](/images/2.prerequisite/029-createec2.png)
+  + In the **Edit VPC** section, click the **X** to reselect the **Lab VPC** you created for this lab.
+  + In the **Subnet** section, click the **Lab Private Subnet** you created for this lab.
+  + In the **Security Groups** section, click the **SG Lambda** you created for this lab.
+  + Then scroll down and click on **Save**
 
 ![EC2](/images/2.prerequisite/030-createec2.png)
 
