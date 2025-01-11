@@ -18,6 +18,6 @@ The architecture overview after you complete this step will be as follows:
 ### Content
   - [Create VPC](2.1.1-createvpc/)
   - [Create Private Subnet](2.1.2-createprivatesubnet/)
-  - [Create security group](2.1.4-createsecgroup/)
+  - [Create security group](2.1.3-createsecgroup/)
   - [Create public Linux server](2.1.5-createec2linux/)
   - [Create private Windows server](2.1.6-createec2windows/)
