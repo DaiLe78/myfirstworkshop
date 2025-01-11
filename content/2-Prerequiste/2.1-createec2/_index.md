@@ -10,7 +10,7 @@ In this step, we will need to create a VPC with 2 private subnets. Then create 2
 
 The architecture overview after you complete this step will be as follows:
 
-![VPC](/images/arc-01.png)
+![VPC](/images/image1.png)
 
 
 
