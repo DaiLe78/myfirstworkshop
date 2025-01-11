@@ -1,9 +1,9 @@
 ---
 title : "Create Private Subnet"
 date : "`r Sys.Date()`"
-weight : 3
+weight : 2
 chapter : false
-pre : " <b> 2.1.3 </b> "
+pre : " <b> 2.1.2 </b> "
 ---
 
 #### Create Private Subnet
