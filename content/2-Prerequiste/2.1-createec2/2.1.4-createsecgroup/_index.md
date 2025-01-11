@@ -22,7 +22,7 @@ In this step, we will proceed to create the security groups used for our Lambda 
   + In the **Description** section, enter **SG Lambda**.
   + In the **VPC** section, click the **X** to reselect the **Lab VPC** you created for this lab.
 
-![SG](/images/2.prerequisite/020-createsg.png)
+![SG](/images/2.prerequisite/lambda-01.png)
 
 4. Keep **Outbound rule**, drag the mouse to the bottom.
   + Click **Create security group**.
@@ -36,7 +36,7 @@ As you can see, the security group we created to use for Lambda functions will n
 
 1. After successfully creating a security group for Lambda functions, click the Security Groups link to return to the Security groups list.
 
-![SG](/images/2.prerequisite/021-createsg.png)
+![SG](/images/2.prerequisite/dax-01.png)
 
 2. Click **Create security group**.
 
@@ -44,14 +44,14 @@ As you can see, the security group we created to use for Lambda functions will n
   + In the **Description** section, enter **SG DAX**.
   + In the **VPC** section, click the **X** to reselect the **Lab VPC** you created for this lab.
 
-![SG](/images/2.prerequisite/022-createsg.png)
+![SG](/images/2.prerequisite/dax-02.png)
 
 4. Scroll down.
   + Add **Inbound rule** for **Type**: Custom TCP Rule, **Protocol**: TCP, **Port range**: 8111 (DAX default port), **Source**: SG Lambda 
   + Add **Outbound rule** and keep as default.
   + Click **Create security group**.
 
-![SG](/images/2.prerequisite/023-createsg.png)
+![SG](/images/2.prerequisite/dax-03.png)
 
 {{%notice tip%}}
 For Amazon DAX in the private subnet, Lambda functions will connect to DAX to cache before sending to DynamoDB, so we need to allow inbound connection from our Lambda functions to DAX through port 8111.
@@ -61,7 +61,7 @@ For Amazon DAX in the private subnet, Lambda functions will connect to DAX to ca
 
 1. After successfully creating a security group for DAX, click the Security Groups link to return to the Security groups list.
 
-![SG](/images/2.prerequisite/021-createsg.png)
+![SG](/images/2.prerequisite/OS-01.png)
 
 2. Click **Create security group**.
 
@@ -69,14 +69,14 @@ For Amazon DAX in the private subnet, Lambda functions will connect to DAX to ca
   + In the **Description** section, enter **SG OpenSearch**.
   + In the **VPC** section, click the **X** to reselect the **Lab VPC** you created for this lab.
 
-![SG](/images/2.prerequisite/022-createsg.png)
+![SG](/images/2.prerequisite/OS-02.png)
 
 4. Scroll down.
   + Add **Inbound rule** for **Type**: HTTP, **Protocol**: TCP, **Port range**: 80, **Source**: SG Lambda 
   + Add **Outbound rule** and keep as default.
   + Click **Create security group**.
 
-![SG](/images/2.prerequisite/023-createsg.png)
+![SG](/images/2.prerequisite/OS-03.png)
 
 {{%notice tip%}}
 For OpenSearch in the private subnet we need to allow inbound connection from our Lambda functions to OpenSearch through port 80.
@@ -91,16 +91,14 @@ For OpenSearch in the private subnet we need to allow inbound connection from ou
   + In the **Description** section, enter **SG VPC Endpoint**.
   + In the **VPC** section, click the **X** to reselect the **Lab VPC** you created for this lab.
 
-![SG](/images/2.prerequisite/024-createsg.png)
+![SG](/images/2.prerequisite/VPCE-01.png)
 
 5. Scroll down.
   + Add **Outbound rule** as default.
-  
-![SG](/images/2.prerequisite/025-createsg.png)
 
 6. Add **Inbound rule** allowing TCP 443 to come from 10.10.0.0/16 ( CIDR of **Lab VPC** we created ).
   + Click **Create security group**.
 
-![SG](/images/2.prerequisite/026-createsg.png)
+![SG](/images/2.prerequisite/VPCE-02.png)
 
 So we are done creating the necessary security groups for Lambda functions, DAX, OpenSearch and VPC Endpoints.
