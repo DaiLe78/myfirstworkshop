@@ -8,32 +8,36 @@ pre : " <b> 2.2 </b> "
 
 ### Create VPC Endpoints
 
-In this step, we will proceed to create IAM Role. In this IAM Role, the policy **AmazonSSMManagedInstanceCore** will be assigned, this is the policy that allows the EC2 server to communicate with the Session Manager.
+In this step, we will proceed to create 3 VPC Endpoints for SNS, DynamoDB and CLoudWatch.
 
-1. Go to [IAM service administration interface](https://console.aws.amazon.com/iamv2/)
-2. In the left navigation bar, click **Roles**.
+### Create VPC Endpoint For SNS
 
-![role](/images/2.prerequisite/038-iamrole.png)
+1. Go to **Private Link and Lattice** section on the left menu. Select on **Endpoint** section. Then click on **Creat Endpoint**.
 
-3. Click **Create role**.
+![endpoint](/images/2.prerequisite/VPCE-SNS-01.png)
 
-![role1](/images/2.prerequisite/039-iamrole.png)
+2. In the **name tag** section enter: sns-vpc-enpoint. In the **Type** section click on **AWS services**.
 
-4. Click **AWS service** and click **EC2**.
-  + Click **Next: Permissions**.
+![endpoint](/images/2.prerequisite/VPCE-SNS-02.png)
 
-![role1](/images/2.prerequisite/40-iamrole.png)
+3. In the **Services** choose **sns** type **interface**. In the **Network settings** section, click the **X** to reselect the **Lab VPC** you created for this lab.
 
-5. In the Search box, enter **AmazonSSMManagedInstanceCore** and press Enter to search for this policy.
-  + Click the policy **AmazonSSMManagedInstanceCore**.
-  + Click **Next: Tags.**
+![endpoint](/images/2.prerequisite/VPCE-SNS-03.png)
 
-![createpolicy](/images/2.prerequisite/041-iamrole.png)
+4. In the **Subnets** section, choose subnet on Availability Zone **2a** and IP address type **IPv4**.
 
-6. Click **Next: Review**.
-7. Name the Role **SSM-Role** in Role Name
-  + Click **Create Role** \.
+![endpoint](/images/2.prerequisite/VPCE-SNS-04.png)
 
-![namerole](/images/2.prerequisite/042-iamrole.png)
+5. In the **Security groups** section, click on **SG VPC Endpoint For SNS** we have created before.
 
-Next, we will make the connection to the EC2 servers we created with **Session Manager**.
+![endpoint](/images/2.prerequisite/VPCE-SNS-05.png)
+
+6. Scroll down and click on **Creat Endpoint**.
+
+### Create VPC Endpoint For DynamoDB and CloudWatch
+
+{{%notice tip%}}
+We do the same steps as VPC Endpoint For SNS above.
+{{%/notice%}}
+
+So we are done creating 3 VPC Endpoints for AWS Services.
