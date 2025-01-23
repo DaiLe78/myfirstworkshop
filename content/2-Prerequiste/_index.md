@@ -20,4 +20,4 @@ To build a secure serverless hotel booking chatbot on AWS, we need to prepare a 
 
 ### Content
   - [Prepare VPC ](2.1-createec2/)
-  - [Create IAM Role](2.2-createiamrole/)
+  - [Create VPC Endpoints](2.2-createiamrole/)
