@@ -1,12 +1,12 @@
 ---
-title : "Preparing VPC, Lambda, DAX and OpenSearch"
+title : "Preparing VPC, Security Groups and VPC Endpoints"
 date : "`r Sys.Date()`"
 weight : 1
 chapter : false
 pre : " <b> 2.1 </b> "
 ---
 
-In this step, we will need to create a VPC with 2 private subnets. Then create 2 Lambda functions, 1 Amazon DAX and 1 OpenSearch located in the private subnet.
+In this step, we will need to create a VPC with 3 private subnets. Then create security groups for 2 Lambda functions and VPC Endpoints. Lastly we creat VPC Endpoints for SNS, DynamoDB and CloudWatch.
 
 The architecture overview after you complete this step will be as follows:
 
@@ -19,5 +19,3 @@ The architecture overview after you complete this step will be as follows:
   - [Create VPC](2.1.1-createvpc/)
   - [Create Private Subnet](2.1.2-createprivatesubnet/)
   - [Create security group](2.1.3-createsecgroup/)
-  - [Create public Linux server](2.1.5-createec2linux/)
-  - [Create private Windows server](2.1.6-createec2windows/)
