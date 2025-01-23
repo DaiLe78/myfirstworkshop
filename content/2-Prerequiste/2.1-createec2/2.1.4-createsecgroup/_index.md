@@ -1,16 +1,16 @@
 ---
-title : "Create security groups"
+title : "Create Security Groups"
 date : "`r Sys.Date()`"
 weight : 3
 chapter : false
 pre : " <b> 2.1.3 </b> "
 ---
 
-#### Create security groups
+#### Create Security Groups
 
-In this step, we will proceed to create the security groups used for our Lambda functions, DAX, OpenSearch and VPC Endpoints.
+In this step, we will proceed to create the security groups used for our Lambda functions and VPC Endpoints.
 
-#### Create security group for 2 Lambda functions located in private subnet
+#### Create security group for Lambda 1 located in private subnet
 
 1. Go to [VPC service management console](https://console.aws.amazon.com/vpc)
   + Click **Security Group**.
@@ -18,62 +18,59 @@ In this step, we will proceed to create the security groups used for our Lambda 
 
 ![SG](/images/2.prerequisite/019-createsg.png)
 
-3. In the **Security group name** field, enter **SG Lambda**.
-  + In the **Description** section, enter **SG Lambda**.
+3. In the **Security group name** field, enter **SG Lambda1**.
+  + In the **Description** section, enter **sg for lambda1**.
   + In the **VPC** section, click the **X** to reselect the **Lab VPC** you created for this lab.
 
 ![SG](/images/2.prerequisite/lambda-01.png)
 
-4. Keep **Outbound rule**, drag the mouse to the bottom.
+4. Keep **Inbound rule** blank, **Outbound rule** allows **All traffic**.
+
+![SG](/images/2.prerequisite/lambda-02.png)
+
+5. Drag the mouse to the bottom.
   + Click **Create security group**.
 
+#### Create security group for Lambda 2 located in private subnet
+
 {{%notice tip%}}
-As you can see, the security group we created to use for Lambda functions will not need to open traditional ports like port **22**.
+We configure the same as lambda 1 but now leave both the inbound and outbound rule blank. We will add these rules later!
 {{%/notice%}}
 
-
-#### Create a security group for Amazon DAX located in a private subnet
+#### Create a security group for VPC Endpoint for SNS
 
 1. After successfully creating a security group for Lambda functions, click the Security Groups link to return to the Security groups list.
 
-![SG](/images/2.prerequisite/dax-01.png)
-
 2. Click **Create security group**.
 
-3. In the **Security group name** field, enter **SG DAX**.
-  + In the **Description** section, enter **SG DAX**.
+3. In the **Security group name** field, enter **SG VPC Endpoint For SNS**.
+  + In the **Description** section, enter **sg vpc endpoint for sns**.
   + In the **VPC** section, click the **X** to reselect the **Lab VPC** you created for this lab.
 
-![SG](/images/2.prerequisite/dax-02.png)
+![SG](/images/2.prerequisite/SG-VPCE-SNS-01.png)
 
 4. Scroll down.
-  + Add **Inbound rule** for **Type**: Custom TCP Rule, **Protocol**: TCP, **Port range**: 8111 (DAX default port), **Source**: SG Lambda 
-  + Add **Outbound rule** and keep as default.
+  + Add **Inbound rule** for **Type**: All traffic, **Protocol** and **Port range**: All, **Source**: SG Lambda 2 
+  + Add **Outbound rule** and keep as blank.
   + Click **Create security group**.
 
-![SG](/images/2.prerequisite/dax-03.png)
+![SG](/images/2.prerequisite/SG-VPCE-SNS-02.png)
 
-{{%notice tip%}}
-For Amazon DAX in the private subnet, Lambda functions will connect to DAX to cache before sending to DynamoDB, so we need to allow inbound connection from our Lambda functions to DAX through port 8111.
-{{%/notice%}}
+#### Create a security group for VPC Endpoint for DynamoDB
 
-#### Create a security group for Amazon OpenSearch located in a private subnet
-
-1. After successfully creating a security group for DAX, click the Security Groups link to return to the Security groups list.
-
-![SG](/images/2.prerequisite/OS-01.png)
+1. After successfully creating a security group for VPC Endpoint for SNS, click the Security Groups link to return to the Security groups list.
 
 2. Click **Create security group**.
 
-3. In the **Security group name** field, enter **SG OpenSearch**.
-  + In the **Description** section, enter **SG OpenSearch**.
+3. In the **Security group name** field, enter **SG VPC Endpoint For DynamoDB**.
+  + In the **Description** section, enter **sg vpc endpoint for dynamodb**.
   + In the **VPC** section, click the **X** to reselect the **Lab VPC** you created for this lab.
 
-![SG](/images/2.prerequisite/OS-02.png)
+![SG](/images/2.prerequisite/SG-VPCE-DynamoDB-01.png)
 
 4. Scroll down.
-  + Add **Inbound rule** for **Type**: HTTP, **Protocol**: TCP, **Port range**: 80, **Source**: SG Lambda 
-  + Add **Outbound rule** and keep as default.
+  + Add **Inbound rule** for **Type**: All traffic, **Protocol** and **Port range**: All, **Source**: SG Lambda 1 
+  + Keep **Outbound rules** as blank.
   + Click **Create security group**.
 
 ![SG](/images/2.prerequisite/OS-03.png)
