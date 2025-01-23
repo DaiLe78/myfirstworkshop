@@ -56,6 +56,7 @@ We configure the same as lambda 1 but now leave both the inbound and outbound ru
 
 ![SG](/images/2.prerequisite/SG-VPCE-SNS-02.png)
 
+
 #### Create a security group for VPC Endpoint for DynamoDB
 
 1. After successfully creating a security group for VPC Endpoint for SNS, click the Security Groups link to return to the Security groups list.
@@ -73,29 +74,25 @@ We configure the same as lambda 1 but now leave both the inbound and outbound ru
   + Keep **Outbound rules** as blank.
   + Click **Create security group**.
 
-![SG](/images/2.prerequisite/OS-03.png)
+![SG](/images/2.prerequisite/SG-VPCE-DynamoDB-02.png)
+
+
+#### Create security group for VPC Endpoint for CloudWatch
 
 {{%notice tip%}}
-For OpenSearch in the private subnet we need to allow inbound connection from our Lambda functions to OpenSearch through port 80.
+We configure the same as security group for VPC Endpoint for DynamoDB : Inbound rules: SG Lambda 1 and leave Outbound rules as blank.
 {{%/notice%}}
 
-#### Create security group for VPC Endpoint
+#### Update security group for Lambda 2
 
-1. In this step, we will create security group for VPC Endpoint.
-2. After successfully creating the security group for OpenSearch in the private subnet, click the Security Groups link to return to the Security groups list.
-3. Click **Create security group**.
-4. In the **Security group name** field, enter **SG VPC Endpoint**.
-  + In the **Description** section, enter **SG VPC Endpoint**.
-  + In the **VPC** section, click the **X** to reselect the **Lab VPC** you created for this lab.
+Now we update **Outbound rules** for **Type**: All traffic, **Protocol** and **Port range**: All, **Source**: SG VPC Endpoint For SNS.
 
-![SG](/images/2.prerequisite/VPCE-01.png)
+![SG](/images/2.prerequisite/lambda-03.png)
 
-5. Scroll down.
-  + Add **Outbound rule** as default.
+{{%notice%}}
+We must ensure enable **DNS hostname** and **DNS Resolution** in the **VPC Settings** so that the VPC support DNS host name when use VPC Endpoints!
+{{%/notice%}}
 
-6. Add **Inbound rule** allowing TCP 443 to come from 10.10.0.0/16 ( CIDR of **Lab VPC** we created ).
-  + Click **Create security group**.
+![SG](/images/2.prerequisite/Edit-VPC.png)
 
-![SG](/images/2.prerequisite/VPCE-02.png)
-
-So we are done creating the necessary security groups for Lambda functions, DAX, OpenSearch and VPC Endpoints.
+So we are done creating the necessary security groups for Lambda functions and VPC Endpoints.
