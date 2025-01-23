@@ -89,7 +89,7 @@ Now we update **Outbound rules** for **Type**: All traffic, **Protocol** and **P
 
 ![SG](/images/2.prerequisite/lambda-03.png)
 
-{{%notice%}}
+{{%notice tip%}}
 We must ensure enable **DNS hostname** and **DNS Resolution** in the **VPC Settings** so that the VPC support DNS host name when use VPC Endpoints!
 {{%/notice%}}
 
