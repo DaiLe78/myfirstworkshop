@@ -1,12 +1,12 @@
 ---
-title : "Create IAM Role"
+title : "Create VPC Endpoints"
 date : "`r Sys.Date()`"
 weight : 2
 chapter : false
 pre : " <b> 2.2 </b> "
 ---
 
-### Create IAM Role
+### Create VPC Endpoints
 
 In this step, we will proceed to create IAM Role. In this IAM Role, the policy **AmazonSSMManagedInstanceCore** will be assigned, this is the policy that allows the EC2 server to communicate with the Session Manager.
 
