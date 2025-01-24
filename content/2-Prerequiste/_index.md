@@ -19,5 +19,5 @@ To learn how to creat VPC Endpoints, you can refer to the lab:
 To build a secure serverless hotel booking chatbot on AWS, we need to prepare a Virtual Private Cloud (VPC) for isolating resources and enabling private access to services. Additionally, setting up VPC endpoints is essential to manage permissions and ensure secure interactions between AWS services like Lambda, SNS, CloudWatch and DynamoDB.
 
 ### Content
-  - [Prepare VPC ](2.1-createec2/)
+  - [Prepare VPC and Security Groups ](2.1-createec2/)
   - [Create VPC Endpoints](2.2-createiamrole/)
