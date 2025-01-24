@@ -1,5 +1,5 @@
 ---
-title : "Preparing VPC, Security Groups and VPC Endpoints"
+title : "Preparing VPC and Security Groups"
 date : "`r Sys.Date()`"
 weight : 1
 chapter : false
