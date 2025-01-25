@@ -1,20 +1,35 @@
 ---
-title : "Connect to Private instance"
+title : "Create Lambda1"
 date : "`r Sys.Date()`"
 weight : 2
 chapter : false
 pre : " <b> 3.2. </b> "
 ---
-For **Windows instance** located in **private subnet**, there is no **public IP**, no **internet gateway** so it cannot go out **internet.**\
-With this type of instance, the traditional way is to use Bastion host technique which is expensive and laborious, but here we will use Session Manager with this type.\
-Basically, the **private instance** still has to open the **TCP 443** port to **System Manager**, but we don't want to allow connection go out to the internet, but only in its  VPC, to enhance our security posture.\
-To do that, we have to include the System Manager endpoint in the VPC, that is, using the **VPC interface endpoint:**
 
-![ConnectPrivate](/images/arc-03.png) 
 
-**VPC interface endpoint** is attached to the subnet, so this method can be done not only with **private subnet** but also with **public subnet**, meaning that with **public subnet**, you can completely prohibit **TCP 443** go out to the internet.
+#### Create Lambda1 function 
+1. Go to [Lambda service management console](https://ap-southeast-2.console.aws.amazon.com/lambda/home)
+  + Click **Creat Function**.
+  + Choose **Author from scratch**.
+  + In the **Function name** section enter **Lambda1**.
+  + Choose language **Python 3.13**.
+  + The rest remains default. Then click on **Create function**.
 
-### Content:
-   - [Enable DNS hostnames](./3.2.1-enablevpcdns/)
-   - [Create VPC Endpoint](./3.2.2-createvpcendpoint/)
-   - [Connect Private Instance](./3.3.3-connectec2/)
+![Lambda1](/images/3.connect/Lambda1-01.png)
+
+{{%notice tip%}}
+We will update the code for Lambda1 later after creat DynamoDB in the next step. The purpose is to be able to connect Lambda1 to DynamoDB.
+{{%/notice%}}
+
+### Connect Lambda1 to Lex to handle backend logic
+2. Go to [LEX service management console](https://ap-southeast-2.console.aws.amazon.com/lexv2/home)
+  + Click on **Aliases** in the left menu.
+  + In the **Languages** section, click on **English (US)**.    
+![Lambda1](/images/3.connect/Lambda1-02.png)
+  + In the **Source** section choose **Lambda1** and the version is **$LATEST**. This step will add **Lambda1** function into **LEX**.
+![Lambda1](/images/3.connect/Lambda1-03.png)
+  + Go to **Intents** in the left menu, tick on **Use a Lambda function for fullfilment** in order to display fullfliment in the lambda's code.
+![Lambda1](/images/3.connect/Lambda1-04.png)
+
+Okay we have created Lambda1 function and connect it to LEX. Now we will move to the next step!
+
