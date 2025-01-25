@@ -12,7 +12,6 @@ pre : " <b> 3.3.2 </b> "
   + Click on **Lambda1** function.
   + Scroll dowm to **Code Source** section.
   + Replace the default Lambda code with this code. I will put the source code under the following GitHub link:
-  ---
   [Source code Lambda1](https://ap-southeast-2.console.aws.amazon.com/lambda/home)
 
 {{%notice tip%}}
