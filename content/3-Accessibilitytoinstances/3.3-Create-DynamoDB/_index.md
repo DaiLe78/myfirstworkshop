@@ -11,6 +11,6 @@ Beside that, after creat DynamoDB table we also need to update code and Iam Role
 
 
 ### Content:
-   - [Enable DNS hostnames](./3.2.1-enablevpcdns/)
-   - [Create VPC Endpoint](./3.2.2-createvpcendpoint/)
-   - [Connect Private Instance](./3.3.3-connectec2/)
+   - [Creat DynamoDB](./3.3.1-creatdynamodb/)
+   - [Update Lambda 1](./3.3.2-updatelambda1/)
+ 
