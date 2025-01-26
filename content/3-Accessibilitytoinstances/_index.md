@@ -14,6 +14,7 @@ In this step, we will create and connect the necessary AWS Services to build a s
 3.3. [Create DynamoDB](3.3-create-dynamodb/) \
 3.4. [Create Lambda 2](3.4-create-lambda2/) \
 3.5. [Create DynamoDb Stream](3.5-create-dynamodbstream/) \
-3.6. [Create SNS](3.6-create-sns/) \
-3.7. [Create CloudWatch](3.7-create-cloudwatch/) \
-3.8. [Add 2 Lambda Functions into VPC](3.8-add-lambda-tovpc/) 
+3.6. [Create SNS and update code for Lambda2](3.6-create-sns/) \
+3.7. [Create CloudWatch Logs, Metrics and Alarms](3.7-create-cloudwatch/) \
+3.8. [Add Lambda1 and Lambda2 into LabVPC](3.8-add-lambda-tovpc/) \
+3.9. [First Test ChatBot](3.9-first-test/) 
