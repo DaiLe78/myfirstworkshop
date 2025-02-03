@@ -8,9 +8,9 @@ pre : " <b> 5. </b> "
 
 ### First Test ChatBot
 1. Test on website.
-![lasttest](/images/5.fwd/Screenshot2025-01-16001934.png)
-![lasttest](/images/5.fwd/Screenshot2025-01-16002015.png)
-![lasttest](/images/5.fwd/Screenshot2025-01-16002030.png)
+![lasttest](/images/5.fwd/test-01.jpg)
+![lasttest](/images/5.fwd/test-02.jpg)
+![lasttest](/images/5.fwd/test-03.jpg)
 
 2. Check DynamoDB table to see if data is written to the database.
 ![lasttest](/images/5.fwd/lasttest-04.png)
