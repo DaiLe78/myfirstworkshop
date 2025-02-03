@@ -14,7 +14,7 @@ chapter : false
 ### Content
  1. [Introduction ](1-introduce/)
  2. [Preparation](2-prerequiste/)
- 3. [Connect to EC2 instance](3-accessibilitytoinstances/)
- 4. [Website](4-Website/)
- 5. [Port Forwarding](5-Portfwd/)
+ 3. [Configuration](3-accessibilitytoinstances/)
+ 4. [Integrated on the website](4-Website/)
+ 5. [Test Chatbot on the Website](5-Portfwd/)
  6. [Clean up resources](6-cleanup/)
