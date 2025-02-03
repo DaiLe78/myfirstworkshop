@@ -14,6 +14,6 @@ Amazon Web Services (AWS) offers a comprehensive suite of tools to create intell
 
 **Amazon DynamoDB** provides fast, scalable, and flexible NoSQL database services. It stores user data, session states, and other chatbot-related information.
 
-Additionally, other AWS services such as **Amazon S3**, **Amazon CloudWatch**, **Amazon OpenSearch** and **Amazon SNS** can be integrated to enhance the chatbot's functionality. **Amazon S3** is used for storing static assets or logs, **Amazon CloudWatch** monitors and logs performance metrics, **Amazon OpenSearch** provides search and analytics capabilities for real-time data insights, while **Amazon SNS** sends notifications directly to staff if the chatbot encounters errors or fails to process user queries.
+Additionally, **Amazon S3** is used for hosting the static website that integrates the chatbot, allowing users to interact with it via a web interface. **API Gateway** acts as a bridge between the frontend and backend, enabling secure and efficient communication between the website and the chatbot’s processing logic. Other services like **Amazon CloudWatch** help monitor performance metrics, and **Amazon SNS** can send email confirmation of booking information to customers.
 
 By integrating these AWS services, businesses can create chatbots that are not only responsive and interactive but also highly scalable and cost-effective. This document outlines the architecture, setup process, and best practices for building a serverless chatbot solution on AWS.
