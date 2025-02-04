@@ -13,7 +13,7 @@ pre : " <b> 3.3.2 </b> "
   + Scroll dowm to **Code Source** section.
   + Replace the default Lambda code with this code. I will put the source code under the following GitHub link:
     
-    [Source code Lambda1](https://ap-southeast-2.console.aws.amazon.com/lambda/home)
+    [Source code Lambda1](https://github.com/DaiLe78/Source-code-Lambda/blob/master/Lambda1.py)
 
 {{%notice tip%}}
 This code for Lambda1 will handle the backend logic for Amazon Lex and connect Lambda1 to the DynamoDB table.
