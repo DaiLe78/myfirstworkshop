@@ -37,7 +37,7 @@ After your subscription is created, you must confirm it.
   + Scroll down to **Code Source** section.
   + Replace the default Lambda code with this code. I will put the source code under the following GitHub link.
 
-[Source code Lambda2](https://github.com/DaiLe78/Source-code-Lambda/blob/master/Lambda2.py)
+[Source code Lambda2](https://github.com/DaiLe78/Source-code-Chatbot-AWS/blob/master/Lambda2.py)
   + After this step, we will have the following architecture diagram
 ![SNS](/images/3.connect/SNS-04.png)
 
