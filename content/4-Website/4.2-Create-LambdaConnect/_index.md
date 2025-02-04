@@ -17,7 +17,7 @@ pre : " <b> 4.2. </b> "
 ![lambdaconnect](/images/4.s3/lambdaconnect.png)
   + Replace the default Lambda code with this code. I will put the source code under the following GitHub link.
 
-[Source code LambdaConnectAPIgwToLex](https://ap-southeast-2.console.aws.amazon.com/lambda/home)
+[Source code LambdaConnectAPIgwToLex](https://github.com/DaiLe78/Source-code-Lambda/blob/master/LambdaConnectAPIgwToLex.py)
 
 
 ### Add more IAM Roles for Lambda2
