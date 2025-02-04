@@ -11,7 +11,7 @@ pre : " <b> 4.1. </b> "
 1. We creat a website interface with chatbot with HTML, CSS and JavaScript.
 I will put the source code under the following Github link.
 
-[Source code Website](https://ap-southeast-2.console.aws.amazon.com/lambda/home)
+[Source code Website](https://github.com/DaiLe78/Source-code-Chatbot-AWS)
 
 
 {{%notice tip%}}
